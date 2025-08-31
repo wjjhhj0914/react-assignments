@@ -2,7 +2,7 @@
 
 멋쟁이사자처럼 프론트엔드 부트캠프에서 수행한 React 과제 저장소입니다.
 
-## Folder Structure
+## 📁 Folder Structure
 
 ```bash
 react-assignments/
