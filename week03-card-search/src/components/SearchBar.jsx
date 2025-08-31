@@ -1,33 +1,39 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function SearchBar({
   onSearch,
   defaultValue = '',
-  placeholder = 'Search',
+  placeholder = '예) 아세트아미노펜',
 }) {
   const [searchTerm, setSearchTerm] = useState(defaultValue)
   const [errorMessage, setErrorMessage] = useState('')
   const inputRef = useRef(null)
+  const debounceRef = useRef(null)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = (e) => e.preventDefault()
 
-    const trimmedSearchTerm = searchTerm.trim()
+  useEffect(() => {
+    clearTimeout(debounceRef.current)
 
-    if (!trimmedSearchTerm) {
-      setErrorMessage('검색어를 입력해주세요! 🤓')
-      inputRef.current?.focus()
-      return
-    }
+    debounceRef.current = setTimeout(() => {
+      const trimmedSearchTerm = searchTerm.trim()
 
-    setErrorMessage('')
-    onSearch?.(trimmedSearchTerm)
-  }
+      if (!trimmedSearchTerm) {
+        setErrorMessage('👩🏻‍⚕️ : 검색어를 입력해주세요!')
+        onSearch?.('')
+      } else {
+        setErrorMessage('')
+        onSearch?.(trimmedSearchTerm)
+      }
+    }, 200)
+
+    return () => clearTimeout(debounceRef.current)
+  }, [searchTerm, onSearch])
 
   return (
     <form role="search" onSubmit={handleSubmit} className="relative">
       <label htmlFor="search-drug" className="sr-only">
-        약 이름 검색
+        약 성분 검색
       </label>
       <div className="relative">
         <svg
@@ -48,7 +54,7 @@ export default function SearchBar({
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder={placeholder}
-          aria-label="약 이름 검색"
+          aria-label="약 성분 검색"
           className="input-field"
           aria-invalid={Boolean(errorMessage)}
           aria-describedby={errorMessage ? 'search-error' : undefined}
@@ -63,7 +69,7 @@ export default function SearchBar({
           id="search-error"
           role="alert"
           aria-live="assertive"
-          className="mt-3 text-sm text-red-400"
+          className="mt-6 text-base font-semibold text-emerald-600"
         >
           {errorMessage}
         </p>
