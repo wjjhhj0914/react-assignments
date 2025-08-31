@@ -18,7 +18,7 @@ export default function App() {
             </span>
           </h1>
           <p className="mt-2 text-slate-500 text-lg">
-            약 이름으로 검색해 음식 궁합을 확인하세요!
+            약 성분으로 검색해 음식 궁합을 확인하세요!
           </p>
         </header>
         <SearchBar onSearch={(term) => setSearchTerm(term)} defaultValue="" />
