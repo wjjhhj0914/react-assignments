@@ -1,0 +1,11 @@
+# dependencies
+**/node_modules/
+bun.lockb
+
+# build output
+dist/
+build/
+
+# editor
+.vscode/
+.DS_Store

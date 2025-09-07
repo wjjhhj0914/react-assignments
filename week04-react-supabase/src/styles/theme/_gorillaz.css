@@ -1,0 +1,48 @@
+/* Gorillaz Theme */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&display=swap');
+
+:root {
+  /* Gorillaz Brand Colors */
+  --gorillaz-orange: #d4602a;
+  --gorillaz-orange-light: #e87842;
+  --gorillaz-orange-dark: #b84a1f;
+  --gorillaz-brown: #8b4513;
+  --gorillaz-brown-dark: #654321;
+  --gorillaz-cream: #f5f5dc;
+  --gorillaz-black: #1a1a1a;
+  --gorillaz-gray: #2c2c2c;
+  --gorillaz-blue: #4a6b8a;
+  --gorillaz-green: #6b8e3d;
+
+  /* Background gradients */
+  --gorillaz-sunset: linear-gradient(
+    135deg,
+    #d4602a 0%,
+    #b84a1f 50%,
+    #8b4513 100%
+  );
+  --gorillaz-dark: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+
+  /* Shadows */
+  --gorillaz-shadow: 0 8px 32px rgba(212, 96, 42, 0.3);
+  --gorillaz-shadow-dark: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  --font-gorillaz:
+    'Metal Mania', 'Creepster', 'Impact', 'Arial Black', sans-serif;
+  --font-body: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--gorillaz-sunset);
+  min-height: 100vh;
+  color: var(--gorillaz-cream);
+}
+
+/* Gorillaz brand text */
+.gorillaz-logo {
+  font-family: var(--font-gorillaz);
+  font-weight: bold;
+  color: var(--gorillaz-cream);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
