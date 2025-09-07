@@ -5,3 +5,4 @@
 ## 📁 Assignments
 
 - [Week 03 - Card Search List UI : DrugMate](./week03-card-search/README.md)
+- [Week 04 - Supabase Auth with SPA Routing](./week04-react-supabase/README.md)
